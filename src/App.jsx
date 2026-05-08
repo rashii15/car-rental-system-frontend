@@ -5,16 +5,21 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Login from './pages/Login'
 import Register from "./pages/Register";
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
+import { Routes, Route } from "react-router-dom";
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Register></Register>
-    </>
+    <Routes>
+
+    <Route path="/" element={<Login />} />
+
+    <Route path="/register" element={<Register />} />
+
+    </Routes>
   )
 }
 

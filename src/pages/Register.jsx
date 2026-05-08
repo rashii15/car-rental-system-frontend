@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import API from "../services/api";
+import { Link } from "react-router-dom";
 
 
 function Register() {
@@ -69,6 +70,13 @@ function Register() {
           >
             Register
           </button>
+
+          <p className="text-center mt-3">
+            Already have an account?{" "}
+            <Link to="/">
+                Login
+            </Link>
+        </p>
   
         </div>
   

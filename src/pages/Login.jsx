@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import API from "../services/api";
+import { Link } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -52,6 +53,13 @@ function Login() {
         >
           Login
         </button>
+
+        <p className="text-center mt-3">
+            Don't have an account?{" "}
+            <Link to="/register">
+                Register
+            </Link>
+        </p>
       </div>
     </div>
   )
