@@ -2,10 +2,13 @@ import React from 'react'
 import { useState } from "react";
 import API from "../services/api";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
   
     const handleLogin = async () => {
       try {
@@ -15,15 +18,27 @@ function Login() {
         });
   
         alert("Login successful!");
+        
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response.data)
+        );
+
+        if (response.data.role === "ADMIN") {
+          navigate("/admin");
+        } else {       
+          navigate("/home"); 
+        }
   
         console.log(response.data);
   
       } catch (error) {
-        alert("Invalid credentials");
         console.error(error);
+        alert("Invalid credentials");
+        
       }
     };
-  
+
   return (
 <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
       <div className="card shadow p-4" style={{ width: "350px" }}>
