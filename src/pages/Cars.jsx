@@ -2,9 +2,11 @@ import React from 'react'
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Cars() {
     const [cars, setCars] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -72,9 +74,11 @@ function Cars() {
                         <p>
                           Status: {car.status}
                         </p>
-    
-                        <button className="btn btn-primary w-100">
-                          Book Now
+                        <button
+                            className="btn btn-primary w-100"
+                            onClick={() => navigate(`/booking/${car.id}`)}
+                        >
+                                Book Now
                         </button>
     
                       </div>
