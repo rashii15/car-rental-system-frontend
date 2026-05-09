@@ -50,6 +50,21 @@ function Navbar() {
             )
           }
 
+          {
+            user?.role === "ADMIN" && (
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/admin/bookings"
+                >
+                  Bookings
+                </Link>
+              </li>
+
+            )
+          }
+
           <li className="nav-item">
 
             <button

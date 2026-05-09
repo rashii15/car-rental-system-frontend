@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import AdminDashboard from "./pages/AdminDashboard";
 import Cars from "./pages/Cars";
 import Booking from "./pages/Booking";
+import AdminBookings from "./pages/AdminBookings";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
     <Route path="/cars" element={<Cars />} />
 
     <Route path="/booking/:id" element={<Booking />} />
+
+    <Route path="/admin/bookings" element={<AdminBookings />} />
 
     </Routes>
   )
