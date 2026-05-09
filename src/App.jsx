@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom/client';
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AdminDashboard from "./pages/AdminDashboard";
+import Cars from "./pages/Cars";
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
     <Route path="/home" element={<Home />} />
 
     <Route path="/admin" element={<AdminDashboard />} />
+
+    <Route path="/cars" element={<Cars />} />
 
     </Routes>
   )
