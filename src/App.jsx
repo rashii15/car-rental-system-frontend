@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Cars from "./pages/Cars";
 import Booking from "./pages/Booking";
 import AdminBookings from "./pages/AdminBookings";
+import MyBookings from "./pages/MyBookings";
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
     <Route path="/booking/:id" element={<Booking />} />
 
     <Route path="/admin/bookings" element={<AdminBookings />} />
+
+    <Route path="/my-bookings" element={<MyBookings />} />
 
     </Routes>
   )

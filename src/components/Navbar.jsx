@@ -65,6 +65,21 @@ function Navbar() {
             )
           }
 
+          {
+            user?.role === "CUSTOMER" && (
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/my-bookings"
+                >
+                  My Bookings
+                </Link>
+              </li>
+
+            )
+          }
+
           <li className="nav-item">
 
             <button
