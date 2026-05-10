@@ -33,7 +33,7 @@ function AdminBookings() {
         try {
 
             await API.put(
-                `/bookings/status/${id}?status=${status}`
+                `/bookings/update-status/${id}?status=${status}`
             );
 
             fetchBookings();

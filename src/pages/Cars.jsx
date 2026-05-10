@@ -52,7 +52,7 @@ function Cars() {
                     <div className="card shadow">
     
                       <img
-                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                        src={car.imageUrl}
                         className="card-img-top"
                         alt={car.brand}
                         style={{
