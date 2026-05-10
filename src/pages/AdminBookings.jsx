@@ -70,6 +70,7 @@ function AdminBookings() {
                             <th>License</th>
                             <th>Status</th>
                             <th>Actions</th>
+                            <th>Payment</th>
                         </tr>
 
                     </thead>
@@ -127,6 +128,10 @@ function AdminBookings() {
                                             Reject
                                         </button>
 
+                                    </td>
+
+                                    <td>
+                                        {booking.paymentStatus}
                                     </td>
 
                                 </tr>

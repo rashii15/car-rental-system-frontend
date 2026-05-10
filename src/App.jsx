@@ -13,6 +13,7 @@ import Cars from "./pages/Cars";
 import Booking from "./pages/Booking";
 import AdminBookings from "./pages/AdminBookings";
 import MyBookings from "./pages/MyBookings";
+import Payment from "./pages/Payment";
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
     <Route path="/admin/bookings" element={<AdminBookings />} />
 
     <Route path="/my-bookings" element={<MyBookings />} />
+
+    <Route path="/payment/:id" element={<Payment />} />
 
     </Routes>
   )
