@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import API from "../services/api";
+import Footer from '../components/Footer';
 
 
 function AdminBookings() {
@@ -51,13 +52,15 @@ function AdminBookings() {
 
             <Navbar />
 
-            <div className="container mt-5">
+            <div className="card shadow border-0 rounded-4 p-4">
 
                 <h2 className="mb-4">
                     All Bookings
                 </h2>
 
-                <table className="table table-bordered table-striped">
+                <div className="table-responsive"></div>
+
+                <table className="table align-middle">
 
                     <thead>
 
@@ -144,6 +147,7 @@ function AdminBookings() {
                 </table>
 
             </div>
+            <Footer></Footer>
 
         </div>
     );

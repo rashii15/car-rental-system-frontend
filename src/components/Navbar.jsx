@@ -16,9 +16,12 @@ function Navbar() {
 
   return (
 
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <nav className="navbar navbar-expand-lg navbar-dark shadow px-4" style={{
+      backgroundColor: "#0B1426"
+    }}>
 
       <Link className="navbar-brand fw-bold" to="/home">
+      <i className="bi bi-car-front-fill me-2"></i>
         CarRental
       </Link>
 

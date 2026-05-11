@@ -39,7 +39,7 @@ function Payment() {
         <div className="container mt-5">
   
           <div
-            className="card shadow p-4 mx-auto"
+            className="card shadow-lg border-0 rounded-4 p-4 mx-auto"
             style={{ maxWidth: "500px" }}
           >
   

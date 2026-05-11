@@ -9,3 +9,10 @@ body {
   background-color: #F8FAFC;
   color: #0F172A;
 }
+
+.hero {
+  background-image: url("yourimage");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
