@@ -68,6 +68,21 @@ function Navbar() {
             )
           }
 
+{
+            user?.role === "ADMIN" && (
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/customers"
+                >
+                  Customers
+                </Link>
+              </li>
+
+            )
+          }
+
           {
             user?.role === "CUSTOMER" && (
 

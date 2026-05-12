@@ -60,7 +60,7 @@ function Login() {
       <div
         style={{
           background:
-            "linear-gradient(rgba(11,20,38,0.92), rgba(11,20,38,0.92))",
+            "linear-gradient(rgba(11,20,38,0.92), #0b1426)",
 
           minHeight: "100vh",
 
@@ -94,7 +94,7 @@ function Login() {
         style={{
           width: "420px",
 
-          background: "rgba(255,255,255,0.08)",
+          background: "rgba(255, 255, 255, 0.08)",
 
           borderRadius: "25px",
 

@@ -14,6 +14,7 @@ import Booking from "./pages/Booking";
 import AdminBookings from "./pages/AdminBookings";
 import MyBookings from "./pages/MyBookings";
 import Payment from "./pages/Payment";
+import Customers from "./pages/Customers";
 
 
 function App() {
@@ -22,23 +23,25 @@ function App() {
   return (
     <Routes>
 
-    <Route path="/" element={<Login />} />
+      <Route path="/" element={<Login />} />
 
-    <Route path="/register" element={<Register />} />
+      <Route path="/register" element={<Register />} />
 
-    <Route path="/home" element={<Home />} />
+      <Route path="/home" element={<Home />} />
 
-    <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin" element={<AdminDashboard />} />
 
-    <Route path="/cars" element={<Cars />} />
+      <Route path="/cars" element={<Cars />} />
 
-    <Route path="/booking/:id" element={<Booking />} />
+      <Route path="/booking/:id" element={<Booking />} />
 
-    <Route path="/admin/bookings" element={<AdminBookings />} />
+      <Route path="/admin/bookings" element={<AdminBookings />} />
 
-    <Route path="/my-bookings" element={<MyBookings />} />
+      <Route path="/my-bookings" element={<MyBookings />} />
 
-    <Route path="/payment/:id" element={<Payment />} />
+      <Route path="/payment/:id" element={<Payment />} />
+
+      <Route path="/customers" element={<Customers />}/>
 
     </Routes>
   )

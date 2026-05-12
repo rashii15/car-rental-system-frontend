@@ -8,6 +8,21 @@ import Footer from '../components/Footer';
 function Cars() {
   const [cars, setCars] = useState([]);
   const navigate = useNavigate();
+  const [brand, setBrand] = useState("");
+
+  const [model, setModel] = useState("");
+
+  const [type, setType] = useState("");
+
+  const [pricePerDay, setPricePerDay] = useState("");
+
+  const [imageUrl, setImageUrl] = useState("");
+
+  const [editId, setEditId] = useState(null);
+
+  const user = JSON.parse(
+    localStorage.getItem("user")
+  );
 
   useEffect(() => {
 
@@ -30,12 +45,282 @@ function Cars() {
     }
   };
 
+  const addCar = async () => {
+
+    try {
+
+      await API.post("/cars/add", {
+
+        brand,
+        model,
+        type,
+        pricePerDay,
+        imageUrl,
+
+        status: "AVAILABLE"
+
+      });
+
+      alert("Car Added Successfully");
+
+      fetchCars();
+
+      setBrand("");
+      setModel("");
+      setType("");
+      setPricePerDay("");
+      setImageUrl("");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Failed to add car");
+    }
+  };
+  const updateCar = async () => {
+
+    try {
+  
+      await API.put(`/cars/update/${editId}`, {
+  
+        brand,
+        model,
+        type,
+        pricePerDay,
+        imageUrl,
+  
+        status: "AVAILABLE"
+  
+      });
+  
+      alert("Car Updated Successfully");
+  
+      fetchCars();
+  
+      setEditId(null);
+  
+      setBrand("");
+      setModel("");
+      setType("");
+      setPricePerDay("");
+      setImageUrl("");
+  
+    } catch (error) {
+  
+      console.error(error);
+  
+      alert("Update Failed");
+  
+    }
+  };
+  const deactivateCar = async (id) => {
+
+    try {
+  
+      await API.put(`/cars/deactivate/${id}`);
+  
+      alert("Car Removed Successfully");
+  
+      fetchCars();
+  
+    } catch (error) {
+  
+      console.error(error);
+  
+      alert(
+        error.response?.data ||
+        "Cannot remove booked car"
+      );
+    }
+  };
+  const editCar = (car) => {
+
+    setEditId(car.id);
+  
+    setBrand(car.brand);
+  
+    setModel(car.model);
+  
+    setType(car.type);
+  
+    setPricePerDay(car.pricePerDay);
+  
+    setImageUrl(car.imageUrl);
+  };
+
 
   return (
 
     <div>
 
       <Navbar />
+
+      {
+        user?.role === "ADMIN" && (
+
+          <div
+            className="container py-5"
+          >
+
+            <div
+              className="card border-0 shadow-lg rounded-4 p-4"
+
+              style={{
+                backgroundColor: "#111C34",
+                color: "white",
+              }}
+            >
+
+<h2
+  className="mb-4 fw-bold"
+
+  style={{
+    color: "#D4AF37",
+  }}
+>
+  {
+    editId
+      ? "Update Car"
+      : "Add New Car"
+  }
+</h2>
+              <div className="row">
+
+                {/* BRAND */}
+
+                <div className="col-md-4 mb-3">
+
+                  <input
+                    type="text"
+
+                    placeholder="Brand"
+
+                    className="form-control p-3 rounded-pill"
+
+                    value={brand}
+
+                    onChange={(e) =>
+                      setBrand(e.target.value)
+                    }
+                  />
+
+                </div>
+
+                {/* MODEL */}
+
+                <div className="col-md-4 mb-3">
+
+                  <input
+                    type="text"
+
+                    placeholder="Model"
+
+                    className="form-control p-3 rounded-pill"
+
+                    value={model}
+
+                    onChange={(e) =>
+                      setModel(e.target.value)
+                    }
+                  />
+
+                </div>
+
+                {/* TYPE */}
+
+                <div className="col-md-4 mb-3">
+
+                  <input
+                    type="text"
+
+                    placeholder="Type"
+
+                    className="form-control p-3 rounded-pill"
+
+                    value={type}
+
+                    onChange={(e) =>
+                      setType(e.target.value)
+                    }
+                  />
+
+                </div>
+
+                {/* PRICE */}
+
+                <div className="col-md-6 mb-3">
+
+                  <input
+                    type="number"
+
+                    placeholder="Price Per Day"
+
+                    className="form-control p-3 rounded-pill"
+
+                    value={pricePerDay}
+
+                    onChange={(e) =>
+                      setPricePerDay(e.target.value)
+                    }
+                  />
+
+                </div>
+
+                {/* IMAGE */}
+
+                <div className="col-md-6 mb-3">
+
+                  <input
+                    type="text"
+
+                    placeholder="Image URL"
+
+                    className="form-control p-3 rounded-pill"
+
+                    value={imageUrl}
+
+                    onChange={(e) =>
+                      setImageUrl(e.target.value)
+                    }
+                  />
+
+                </div>
+
+              </div>
+
+              {/* BUTTON */}
+
+              <button
+  className="btn mt-3"
+
+  style={{
+    backgroundColor: "#D4AF37",
+    color: "#0B1426",
+    borderRadius: "30px",
+    padding: "12px 30px",
+    fontWeight: "bold",
+    border: "none",
+  }}
+
+  onClick={
+    editId
+      ? updateCar
+      : addCar
+  }
+>
+  {
+    editId
+      ? "Update Car"
+      : "Add Car"
+  }
+</button>
+            </div>
+
+          </div>
+
+        )
+      }
 
       <div
         style={{
@@ -45,7 +330,10 @@ function Cars() {
         }}
       >
 
+
         <div className="text-center mb-5">
+          <br />
+          <br />
 
           <p
             style={{
@@ -79,9 +367,16 @@ function Cars() {
         <div className="row">
 
           {
-            cars.map((car) => (
+            cars
+            .filter(
+              (car) => car.status !== "INACTIVE"
+            )
+            .map((car) => (
 
-              <div className="col-lg-4 col-md-6 mb-4">
+              <div
+                className="col-lg-4 col-md-6 mb-4"
+                key={car.id}
+              >
 
                 <div
                   className="card h-100 border-0 rounded-4 overflow-hidden feature-card"
@@ -180,26 +475,66 @@ function Cars() {
 
                     </div>
 
+                    {
+  user?.role === "ADMIN" && (
+
+    <div className="d-flex gap-2 mt-4">
+
+      <button
+        className="btn w-50"
+
+        style={{
+          backgroundColor: "#D4AF37",
+          color: "#0B1426",
+          borderRadius: "30px",
+          border: "none",
+          fontWeight: "bold",
+        }}
+
+        onClick={() => editCar(car)}
+      >
+        Edit
+      </button>
+
+      <button
+        className="btn btn-danger w-50 rounded-pill fw-bold"
+
+        onClick={() => deactivateCar(car.id)}
+      >
+        Delete
+      </button>
+
+    </div>
+
+  )
+}
+
                     {/* BUTTON */}
 
-                    <button
-                      className="btn w-100 mt-4"
+                    {
+                      user?.role !== "ADMIN" && (
 
-                      style={{
-                        backgroundColor: "#D4AF37",
-                        color: "#0B1426",
-                        borderRadius: "30px",
-                        padding: "12px",
-                        fontWeight: "bold",
-                        border: "none",
-                      }}
+                        <button
+                          className="btn w-100 mt-4"
 
-                      onClick={() =>
-                        navigate(`/booking/${car.id}`)
-                      }
-                    >
-                      Book Now
-                    </button>
+                          style={{
+                            backgroundColor: "#D4AF37",
+                            color: "#0B1426",
+                            borderRadius: "30px",
+                            padding: "12px",
+                            fontWeight: "bold",
+                            border: "none",
+                          }}
+
+                          onClick={() =>
+                            navigate(`/booking/${car.id}`)
+                          }
+                        >
+                          Book Now
+                        </button>
+
+                      )
+                    }
 
                   </div>
 
