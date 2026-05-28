@@ -5,11 +5,14 @@ import Footer from '../components/Footer';
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import API from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [brand, setBrand] = useState("");
 
   const [cars, setCars] = useState([]);
+
+  const navigate = useNavigate();
 
   const searchCars = async () => {
 
@@ -51,8 +54,6 @@ function Home() {
         }}
       >
 
-        {/* DARK OVERLAY */}
-
         <div
           style={{
             background:
@@ -69,8 +70,6 @@ function Home() {
           <div className="container">
 
             <div className="row align-items-center">
-
-              {/* LEFT SIDE TEXT */}
 
               <motion.div
                 className="col-md-6 text-white"
@@ -129,12 +128,15 @@ function Home() {
                       border: "none",
                       fontWeight: "bold",
                     }}
+
+                    onClick={() => navigate("/cars")}
                   >
                     Explore Cars
                   </button>
 
                   <button
                     className="btn btn-outline-light btn-lg rounded-pill px-4"
+                    onClick={() => navigate("/About")}
                   >
                     Learn More
                   </button>
@@ -149,8 +151,6 @@ function Home() {
         </div>
 
       </div>
-
-      {/* SEARCH SECTION */}
 
       <div className="container">
 
@@ -169,8 +169,6 @@ function Home() {
         >
 
           <div className="row align-items-center">
-
-            {/* DROPDOWN */}
 
             <div className="col-md-9 mb-3 mb-md-0">
 
@@ -192,16 +190,28 @@ function Home() {
                   Toyota
                 </option>
 
-                <option value="Honda">
-                  Honda
-                </option>
-
                 <option value="BMW">
                   BMW
                 </option>
 
+                <option value="Honda">
+                  Honda
+                </option>
+
                 <option value="Audi">
                   Audi
+                </option>
+
+                <option value="Ferrari">
+                  Ferrari
+                </option>
+
+                <option value="Porsche">
+                  Porsche
+                </option>
+
+                <option value="Lamborghini">
+                  Lamborghini
                 </option>
 
                 <option value="Suzuki">
@@ -211,8 +221,6 @@ function Home() {
               </select>
 
             </div>
-
-            {/* BUTTON */}
 
             <div className="col-md-3">
 
@@ -261,8 +269,6 @@ function Home() {
                   }}
                 >
 
-                  {/* IMAGE */}
-
                   <img
                     src={car.imageUrl}
 
@@ -273,8 +279,6 @@ function Home() {
                       objectFit: "cover",
                     }}
                   />
-
-                  {/* BODY */}
 
                   <div className="card-body p-4">
 

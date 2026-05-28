@@ -95,8 +95,6 @@ function Payment() {
               }}
             >
 
-              {/* TOP */}
-
               <div
                 className="p-5"
 
@@ -118,11 +116,7 @@ function Payment() {
 
               </div>
 
-              {/* FORM */}
-
               <div className="p-5">
-
-                {/* CARD NUMBER */}
 
                 <div className="mb-3">
 
@@ -148,8 +142,6 @@ function Payment() {
 
                 </div>
 
-                {/* CARD HOLDER */}
-
                 <div className="mb-3">
 
                   <label className="mb-2 fw-bold" style={{color: "#CBD5E1",}}>
@@ -173,8 +165,6 @@ function Payment() {
                   />
 
                 </div>
-
-                {/* EXPIRY + CVV */}
 
                 <div className="row">
 
@@ -225,8 +215,6 @@ function Payment() {
                   </div>
 
                 </div>
-
-                {/* BUTTON */}
 
                 <motion.button
                   whileHover={{

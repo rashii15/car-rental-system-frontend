@@ -81,53 +81,53 @@ function Cars() {
   const updateCar = async () => {
 
     try {
-  
+
       await API.put(`/cars/update/${editId}`, {
-  
+
         brand,
         model,
         type,
         pricePerDay,
         imageUrl,
-  
+
         status: "AVAILABLE"
-  
+
       });
-  
+
       alert("Car Updated Successfully");
-  
+
       fetchCars();
-  
+
       setEditId(null);
-  
+
       setBrand("");
       setModel("");
       setType("");
       setPricePerDay("");
       setImageUrl("");
-  
+
     } catch (error) {
-  
+
       console.error(error);
-  
+
       alert("Update Failed");
-  
+
     }
   };
   const deactivateCar = async (id) => {
 
     try {
-  
+
       await API.put(`/cars/deactivate/${id}`);
-  
+
       alert("Car Removed Successfully");
-  
+
       fetchCars();
-  
+
     } catch (error) {
-  
+
       console.error(error);
-  
+
       alert(
         error.response?.data ||
         "Cannot remove booked car"
@@ -137,15 +137,15 @@ function Cars() {
   const editCar = (car) => {
 
     setEditId(car.id);
-  
+
     setBrand(car.brand);
-  
+
     setModel(car.model);
-  
+
     setType(car.type);
-  
+
     setPricePerDay(car.pricePerDay);
-  
+
     setImageUrl(car.imageUrl);
   };
 
@@ -172,22 +172,20 @@ function Cars() {
               }}
             >
 
-<h2
-  className="mb-4 fw-bold"
+              <h2
+                className="mb-4 fw-bold"
 
-  style={{
-    color: "#D4AF37",
-  }}
->
-  {
-    editId
-      ? "Update Car"
-      : "Add New Car"
-  }
-</h2>
+                style={{
+                  color: "#D4AF37",
+                }}
+              >
+                {
+                  editId
+                    ? "Update Car"
+                    : "Add New Car"
+                }
+              </h2>
               <div className="row">
-
-                {/* BRAND */}
 
                 <div className="col-md-4 mb-3">
 
@@ -207,8 +205,6 @@ function Cars() {
 
                 </div>
 
-                {/* MODEL */}
-
                 <div className="col-md-4 mb-3">
 
                   <input
@@ -226,8 +222,6 @@ function Cars() {
                   />
 
                 </div>
-
-                {/* TYPE */}
 
                 <div className="col-md-4 mb-3">
 
@@ -247,8 +241,6 @@ function Cars() {
 
                 </div>
 
-                {/* PRICE */}
-
                 <div className="col-md-6 mb-3">
 
                   <input
@@ -266,8 +258,6 @@ function Cars() {
                   />
 
                 </div>
-
-                {/* IMAGE */}
 
                 <div className="col-md-6 mb-3">
 
@@ -289,32 +279,30 @@ function Cars() {
 
               </div>
 
-              {/* BUTTON */}
-
               <button
-  className="btn mt-3"
+                className="btn mt-3"
 
-  style={{
-    backgroundColor: "#D4AF37",
-    color: "#0B1426",
-    borderRadius: "30px",
-    padding: "12px 30px",
-    fontWeight: "bold",
-    border: "none",
-  }}
+                style={{
+                  backgroundColor: "#D4AF37",
+                  color: "#0B1426",
+                  borderRadius: "30px",
+                  padding: "12px 30px",
+                  fontWeight: "bold",
+                  border: "none",
+                }}
 
-  onClick={
-    editId
-      ? updateCar
-      : addCar
-  }
->
-  {
-    editId
-      ? "Update Car"
-      : "Add Car"
-  }
-</button>
+                onClick={
+                  editId
+                    ? updateCar
+                    : addCar
+                }
+              >
+                {
+                  editId
+                    ? "Update Car"
+                    : "Add Car"
+                }
+              </button>
             </div>
 
           </div>
@@ -368,181 +356,170 @@ function Cars() {
 
           {
             cars
-            .filter(
-              (car) => car.status !== "INACTIVE"
-            )
-            .map((car) => (
-
-              <div
-                className="col-lg-4 col-md-6 mb-4"
-                key={car.id}
-              >
+              .filter(
+                (car) => car.status !== "INACTIVE"
+              )
+              .map((car) => (
 
                 <div
-                  className="card h-100 border-0 rounded-4 overflow-hidden feature-card"
-
-                  style={{
-                    backgroundColor: "#111C34",
-                    color: "white",
-                  }}
+                  className="col-lg-4 col-md-6 mb-4"
+                  key={car.id}
                 >
 
-                  {/* IMAGE */}
-
                   <div
+                    className="card h-100 border-0 rounded-4 overflow-hidden feature-card"
+
                     style={{
-                      overflow: "hidden",
+                      backgroundColor: "#111C34",
+                      color: "white",
                     }}
                   >
-
-                    <img
-                      src={car.imageUrl}
-                      className="card-img-top"
-
+                    <div
                       style={{
-                        height: "240px",
-                        objectFit: "cover",
-                        transition: "0.4s",
+                        overflow: "hidden",
                       }}
-                    />
+                    >
 
-                  </div>
+                      <img
+                        src={car.imageUrl}
+                        className="card-img-top"
 
-                  {/* BODY */}
-
-                  <div className="card-body p-4">
-
-                    <div className="d-flex justify-content-between align-items-center">
-
-                      <h4 className="fw-bold mb-0">
-                        {car.brand}
-                      </h4>
-
-                      <span
-                        className="badge"
                         style={{
-                          backgroundColor: "#D4AF37",
-                          color: "#0B1426",
-                          padding: "8px 12px",
+                          height: "240px",
+                          objectFit: "cover",
+                          transition: "0.4s",
                         }}
-                      >
-                        {car.type}
-                      </span>
+                      />
 
                     </div>
 
-                    <p
-                      style={{
-                        color: "#CBD5E1",
-                        marginTop: "10px",
-                      }}
-                    >
-                      {car.model}
-                    </p>
+                    <div className="card-body p-4">
 
-                    {/* PRICE */}
+                      <div className="d-flex justify-content-between align-items-center">
 
-                    <h3
-                      style={{
-                        color: "#D4AF37",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Rs. {car.pricePerDay}
-                      <span
-                        style={{
-                          fontSize: "1rem",
-                          color: "#CBD5E1",
-                        }}
-                      >
-                        /day
-                      </span>
-                    </h3>
+                        <h4 className="fw-bold mb-0">
+                          {car.brand}
+                        </h4>
 
-                    {/* STATUS */}
-
-                    <div className="mt-3">
-
-                      <span
-                        className={
-                          car.status === "AVAILABLE"
-                            ? "badge bg-success"
-                            : "badge bg-danger"
-                        }
-                      >
-                        {car.status}
-                      </span>
-
-                    </div>
-
-                    {
-  user?.role === "ADMIN" && (
-
-    <div className="d-flex gap-2 mt-4">
-
-      <button
-        className="btn w-50"
-
-        style={{
-          backgroundColor: "#D4AF37",
-          color: "#0B1426",
-          borderRadius: "30px",
-          border: "none",
-          fontWeight: "bold",
-        }}
-
-        onClick={() => editCar(car)}
-      >
-        Edit
-      </button>
-
-      <button
-        className="btn btn-danger w-50 rounded-pill fw-bold"
-
-        onClick={() => deactivateCar(car.id)}
-      >
-        Delete
-      </button>
-
-    </div>
-
-  )
-}
-
-                    {/* BUTTON */}
-
-                    {
-                      user?.role !== "ADMIN" && (
-
-                        <button
-                          className="btn w-100 mt-4"
-
+                        <span
+                          className="badge"
                           style={{
                             backgroundColor: "#D4AF37",
                             color: "#0B1426",
-                            borderRadius: "30px",
-                            padding: "12px",
-                            fontWeight: "bold",
-                            border: "none",
+                            padding: "8px 12px",
                           }}
+                        >
+                          {car.type}
+                        </span>
 
-                          onClick={() =>
-                            navigate(`/booking/${car.id}`)
+                      </div>
+
+                      <p
+                        style={{
+                          color: "#CBD5E1",
+                          marginTop: "10px",
+                        }}
+                      >
+                        {car.model}
+                      </p>
+
+                      <h3
+                        style={{
+                          color: "#D4AF37",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Rs. {car.pricePerDay}
+                        <span
+                          style={{
+                            fontSize: "1rem",
+                            color: "#CBD5E1",
+                          }}
+                        >
+                          /day
+                        </span>
+                      </h3>
+
+                      <div className="mt-3">
+
+                        <span
+                          className={
+                            car.status === "AVAILABLE"
+                              ? "badge bg-success"
+                              : "badge bg-danger"
                           }
                         >
-                          Book Now
-                        </button>
+                          {car.status}
+                        </span>
 
-                      )
-                    }
+                      </div>
+
+                      {
+                        user?.role === "ADMIN" && (
+
+                          <div className="d-flex gap-2 mt-4">
+
+                            <button
+                              className="btn w-50"
+
+                              style={{
+                                backgroundColor: "#D4AF37",
+                                color: "#0B1426",
+                                borderRadius: "30px",
+                                border: "none",
+                                fontWeight: "bold",
+                              }}
+
+                              onClick={() => editCar(car)}
+                            >
+                              Edit
+                            </button>
+
+                            <button
+                              className="btn btn-danger w-50 rounded-pill fw-bold"
+
+                              onClick={() => deactivateCar(car.id)}
+                            >
+                              Delete
+                            </button>
+
+                          </div>
+
+                        )
+                      }
+
+                      {
+                        user?.role !== "ADMIN" && (
+
+                          <button
+                            className="btn w-100 mt-4"
+
+                            style={{
+                              backgroundColor: "#D4AF37",
+                              color: "#0B1426",
+                              borderRadius: "30px",
+                              padding: "12px",
+                              fontWeight: "bold",
+                              border: "none",
+                            }}
+
+                            onClick={() =>
+                              navigate(`/booking/${car.id}`)
+                            }
+                          >
+                            Book Now
+                          </button>
+
+                        )
+                      }
+
+                    </div>
 
                   </div>
 
                 </div>
 
-              </div>
-
-            ))
+              ))
           }
 
         </div>

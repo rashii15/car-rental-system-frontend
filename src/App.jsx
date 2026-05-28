@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 import Login from './pages/Login'
 import Register from "./pages/Register";
@@ -15,6 +14,7 @@ import AdminBookings from "./pages/AdminBookings";
 import MyBookings from "./pages/MyBookings";
 import Payment from "./pages/Payment";
 import Customers from "./pages/Customers";
+import About from "./pages/About";
 
 
 function App() {
@@ -42,6 +42,8 @@ function App() {
       <Route path="/payment/:id" element={<Payment />} />
 
       <Route path="/customers" element={<Customers />}/>
+
+      <Route path="/about" element={<About />} />
 
     </Routes>
   )

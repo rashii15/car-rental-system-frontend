@@ -55,8 +55,6 @@ function MyBookings() {
 
       <div className="container py-5">
 
-        {/* HEADER */}
-
         <div className="text-center mb-5">
 
           <p
@@ -88,8 +86,6 @@ function MyBookings() {
           </p>
 
         </div>
-
-        {/* TABLE CARD */}
 
         <div
           className="card border-0 shadow-lg rounded-4 p-4"
@@ -168,8 +164,6 @@ function MyBookings() {
                       }}
                     >
 
-                      {/* CAR */}
-
                       <td>
 
                         <div className="fw-bold">
@@ -186,8 +180,6 @@ function MyBookings() {
 
                       </td>
 
-                      {/* DATES */}
-
                       <td>
 
                         <div>
@@ -203,8 +195,6 @@ function MyBookings() {
                         </small>
 
                       </td>
-
-                      {/* STATUS */}
 
                       <td>
 
@@ -227,8 +217,6 @@ function MyBookings() {
 
                       </td>
 
-                      {/* PAYMENT */}
-
                       <td>
 
                         <span
@@ -247,8 +235,6 @@ function MyBookings() {
                         </span>
 
                       </td>
-
-                      {/* ACTION */}
 
                       <td>
 

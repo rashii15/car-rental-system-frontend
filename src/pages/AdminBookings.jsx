@@ -44,8 +44,6 @@ function AdminBookings() {
       <Navbar />
 
       <div className="container py-5">
-        
-        {/* HEADER */}
 
         <div className="text-center mb-5">
 
@@ -77,8 +75,6 @@ function AdminBookings() {
           </p>
 
         </div>
-
-        {/* TABLE CARD */}
 
         <div
           className="card border-0 shadow-lg rounded-4 p-4"
@@ -179,13 +175,9 @@ function AdminBookings() {
                       }}
                     >
 
-                      {/* ID */}
-
                       <td>
                         #{booking.id}
                       </td>
-
-                      {/* CUSTOMER */}
 
                       <td>
 
@@ -203,8 +195,6 @@ function AdminBookings() {
 
                       </td>
 
-                      {/* CAR */}
-
                       <td>
 
                         <div className="fw-bold">
@@ -220,8 +210,6 @@ function AdminBookings() {
                         </small>
 
                       </td>
-
-                      {/* DATES */}
 
                       <td>
 
@@ -239,13 +227,9 @@ function AdminBookings() {
 
                       </td>
 
-                      {/* LICENSE */}
-
                       <td>
                         {booking.licenseNumber}
                       </td>
-
-                      {/* STATUS */}
 
                       <td>
 
@@ -268,8 +252,6 @@ function AdminBookings() {
 
                       </td>
 
-                      {/* PAYMENT */}
-
                       <td>
 
                         <span
@@ -288,8 +270,6 @@ function AdminBookings() {
                         </span>
 
                       </td>
-
-                      {/* ACTIONS */}
 
                       <td>
 

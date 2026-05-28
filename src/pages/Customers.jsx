@@ -45,8 +45,6 @@ function Customers() {
 
       <div className="container py-5">
 
-        {/* HEADER */}
-
         <div className="text-center mb-5">
 
           <p
@@ -78,8 +76,6 @@ function Customers() {
           </p>
 
         </div>
-
-        {/* TABLE CARD */}
 
         <div
           className="card border-0 shadow-lg rounded-4 p-4"
@@ -150,13 +146,9 @@ function Customers() {
                       }}
                     >
 
-                      {/* ID */}
-
                       <td>
                         #{customer.id}
                       </td>
-
-                      {/* NAME */}
 
                       <td>
 
@@ -165,8 +157,6 @@ function Customers() {
                         </div>
 
                       </td>
-
-                      {/* EMAIL */}
 
                       <td>
 
@@ -179,8 +169,6 @@ function Customers() {
                         </span>
 
                       </td>
-
-                      {/* ROLE */}
 
                       <td>
 

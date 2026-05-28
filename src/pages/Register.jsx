@@ -46,8 +46,6 @@ function Register() {
       }}
     >
 
-      {/* OVERLAY */}
-
       <div
         style={{
           background:
@@ -60,8 +58,6 @@ function Register() {
           alignItems: "center",
         }}
       >
-
-        {/* REGISTER CARD */}
         <motion.div
 
           initial={{
@@ -98,8 +94,6 @@ function Register() {
           }}
         >
 
-          {/* TITLE */}
-
           <div className="text-center mb-4">
 
             <h1
@@ -121,8 +115,6 @@ function Register() {
 
           </div>
 
-          {/* NAME */}
-
           <input
             type="text"
 
@@ -136,8 +128,6 @@ function Register() {
               setName(e.target.value)
             }
           />
-
-          {/* EMAIL */}
 
           <input
             type="email"
@@ -153,8 +143,6 @@ function Register() {
             }
           />
 
-          {/* PASSWORD */}
-
           <input
             type="password"
 
@@ -168,8 +156,6 @@ function Register() {
               setPassword(e.target.value)
             }
           />
-
-          {/* BUTTON */}
 
           <button
             className="btn w-100 p-3"
@@ -190,9 +176,7 @@ function Register() {
           >
             Register
           </button>
-
-          {/* LOGIN LINK */}
-
+          
           <p
             className="text-center mt-4"
 

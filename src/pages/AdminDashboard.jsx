@@ -21,8 +21,6 @@ function AdminDashboard() {
 
       <Navbar />
 
-      {/* HERO SECTION */}
-
       <div className="container py-5">
 
         <div className="text-center mb-5">
@@ -57,11 +55,7 @@ function AdminDashboard() {
 
         </div>
 
-        {/* DASHBOARD CARDS */}
-
         <div className="row g-4">
-
-          {/* BOOKINGS */}
 
           <div className="col-lg-4">
 
@@ -123,8 +117,6 @@ function AdminDashboard() {
 
           </div>
 
-          {/* CARS */}
-
           <div className="col-lg-4">
 
             <div
@@ -184,8 +176,6 @@ function AdminDashboard() {
             </div>
 
           </div>
-
-          {/* PAYMENTS */}
 
           <div className="col-lg-4">
 

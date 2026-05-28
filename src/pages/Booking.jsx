@@ -100,8 +100,6 @@ function Booking() {
               }}
             >
 
-              {/* TITLE */}
-
               <div className="text-center mb-4">
 
                 <p
@@ -134,8 +132,6 @@ function Booking() {
 
               </div>
 
-              {/* START DATE */}
-
               <div className="mb-3">
 
                 <label className="mb-2 fw-bold">
@@ -156,8 +152,6 @@ function Booking() {
 
               </div>
 
-              {/* END DATE */}
-
               <div className="mb-3">
 
                 <label className="mb-2 fw-bold">
@@ -177,8 +171,6 @@ function Booking() {
                 />
 
               </div>
-
-              {/* LICENSE */}
 
               <div className="mb-4">
 
@@ -201,8 +193,6 @@ function Booking() {
                 />
 
               </div>
-
-              {/* BUTTON */}
 
               <motion.button
                 whileHover={{

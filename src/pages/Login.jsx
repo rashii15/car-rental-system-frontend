@@ -55,8 +55,6 @@ function Login() {
       }}
     >
 
-      {/* OVERLAY */}
-
       <div
         style={{
           background:
@@ -69,8 +67,6 @@ function Login() {
           alignItems: "center",
         }}
       >
-
-        {/* LOGIN CARD */}
 
         <motion.div
 
@@ -108,8 +104,6 @@ function Login() {
         }}
       >
 
-          {/* TITLE */}
-
           <div className="text-center mb-4">
 
             <h1
@@ -131,8 +125,6 @@ function Login() {
 
           </div>
 
-          {/* EMAIL */}
-
           <input
             type="email"
 
@@ -147,8 +139,6 @@ function Login() {
             }
           />
 
-          {/* PASSWORD */}
-
           <input
             type="password"
 
@@ -162,8 +152,6 @@ function Login() {
               setPassword(e.target.value)
             }
           />
-
-          {/* BUTTON */}
 
           <button
             className="btn w-100 p-3"
@@ -184,8 +172,6 @@ function Login() {
           >
             Login
           </button>
-
-          {/* REGISTER */}
 
           <p
             className="text-center mt-4"
