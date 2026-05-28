@@ -2,41 +2,32 @@ import React from 'react'
 import { useState } from "react";
 import API from "../services/api";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 
-function Login() {
+function Register() {
+
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
 
     try {
-      const response = await API.post("/users/login", {
+
+      await API.post("/users/register", {
+        name,
         email,
         password,
+        role: "CUSTOMER"
       });
 
-      alert("Login successful!");
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(response.data)
-      );
-
-      if (response.data.role === "ADMIN") {
-        navigate("/admin");
-      } else {
-        navigate("/home");
-      }
-
-      console.log(response.data);
+      alert("Registration successful!");
 
     } catch (error) {
+
+      alert("Registration failed");
       console.error(error);
-      alert("Invalid credentials");
 
     }
   };
@@ -48,7 +39,7 @@ function Login() {
         minHeight: "100vh",
 
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7')",
+          "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70')",
 
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -58,7 +49,7 @@ function Login() {
       <div
         style={{
           background:
-            "linear-gradient(rgba(11,20,38,0.92), #0b1426)",
+            "linear-gradient(rgba(11,20,38,0.92), rgba(11,20,38,0.92))",
 
           minHeight: "100vh",
 
@@ -67,7 +58,6 @@ function Login() {
           alignItems: "center",
         }}
       >
-
         <motion.div
 
           initial={{
@@ -84,25 +74,25 @@ function Login() {
             duration: 0.8
           }}
         >
-          <div
-        className="p-5"
+        <div
+          className="p-5"
 
-        style={{
-          width: "420px",
+          style={{
+            width: "430px",
 
-          background: "rgba(255, 255, 255, 0.08)",
+            background: "rgba(255,255,255,0.08)",
 
-          borderRadius: "25px",
+            borderRadius: "25px",
 
-          backdropFilter: "blur(15px)",
+            backdropFilter: "blur(15px)",
 
-          border: "1px solid rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.1)",
 
-          color: "white",
+            color: "white",
 
-          boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-        }}
-      >
+            boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+          }}
+        >
 
           <div className="text-center mb-4">
 
@@ -112,7 +102,7 @@ function Login() {
                 fontWeight: "bold",
               }}
             >
-              Welcome Back
+              Create Account
             </h1>
 
             <p
@@ -120,10 +110,24 @@ function Login() {
                 color: "#CBD5E1",
               }}
             >
-              Login to continue
+              Register to continue
             </p>
 
           </div>
+
+          <input
+            type="text"
+
+            placeholder="Enter name"
+
+            className="form-control mb-3 p-3 rounded-pill"
+
+            value={name}
+
+            onChange={(e) =>
+              setName(e.target.value)
+            }
+          />
 
           <input
             type="email"
@@ -168,11 +172,11 @@ function Login() {
               border: "none",
             }}
 
-            onClick={handleLogin}
+            onClick={handleRegister}
           >
-            Login
+            Register
           </button>
-
+          
           <p
             className="text-center mt-4"
 
@@ -181,10 +185,10 @@ function Login() {
             }}
           >
 
-            Don't have an account?{" "}
+            Already have an account?{" "}
 
             <Link
-              to="/register"
+              to="/"
 
               style={{
                 color: "#D4AF37",
@@ -192,19 +196,18 @@ function Login() {
                 fontWeight: "bold",
               }}
             >
-              Register
+              Login
             </Link>
 
           </p>
-          </div>
 
-          </motion.div>
+        </div>
+
+        </motion.div>
 
       </div>
 
     </div>
-    
-    )
+  )
 }
-
-export default Login
+export default Register;

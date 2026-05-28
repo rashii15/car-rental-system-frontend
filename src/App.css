@@ -1,0 +1,52 @@
+.car-card {
+    transition: 0.3s;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-8px);
+  }
+
+  table tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: 0.2s;
+  }
+
+  body {
+    background-color: #0B1426;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  button {
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+  }
+
+  .feature-card {
+    transition: 0.4s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-card img:hover {
+    transform: scale(1.05);
+  }
+
+  .form-control {
+
+    border: none !important;
+  
+  }
+  
+  .form-control:focus {
+  
+    border-color: #D4AF37 !important;
+  
+    box-shadow:
+      0 0 10px rgba(212,175,55,0.5) !important;
+  
+  }
